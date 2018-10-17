@@ -200,9 +200,9 @@ private extension PreviewViewController {
 
 
         case .slow:
-             player!.seek(to: .zero)
-            // TODO:
-            // set slow here
+            player!.seek(to: .zero)
+            player!.play()
+            player!.rate = 6
 
         case .backwards:
             // set start at the end of song
