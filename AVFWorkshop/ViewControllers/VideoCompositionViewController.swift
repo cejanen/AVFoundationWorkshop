@@ -179,7 +179,13 @@ private extension VideoComposingViewController {
 
         videoComposition.instructions = [mainInstruction]
         videoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-        videoComposition.renderSize = videoTrack.naturalSize
+
+        // fix rotation for video from camera
+        var renderSize = videoTrack.naturalSize
+        if isPortrait(track: videoTrack) {
+            renderSize = CGSize(width: renderSize.height, height: renderSize.width)
+        }
+        videoComposition.renderSize = renderSize
 
         saveAsset(composition, videoComposition: videoComposition)
     }
