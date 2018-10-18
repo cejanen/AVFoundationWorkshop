@@ -172,7 +172,7 @@ private extension VideoComposingViewController {
 
         // set instructions to have full video properly exported
         let mainInstruction = AVMutableVideoCompositionInstruction()
-        mainInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: CMTimeAdd(maxVideoAssetDuration, maxVideoAssetDuration))
+        mainInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: maxVideoAssetDuration)
 
         let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
         mainInstruction.layerInstructions = [layerInstruction]
