@@ -34,15 +34,9 @@ final class AudioSelectionViewController: UIViewController {
     var audioPlayer: AVAudioPlayer?
 
     // MARK: UIViewController life cycle methods
-    // need to pause and replay song when view controller in/visible
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        audioPlayer?.play()
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        audioPlayer?.pause()
+        audioPlayer?.stop()
     }
 }
 
