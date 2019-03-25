@@ -39,10 +39,7 @@ class PreviewViewController: UIViewController {
     var playerItem: AVPlayerItem?
     var loopCount: Int = 0
     var currentPlaybackType: VideoPlaybackType = .normal
-
-    // player item observation
-    // Key-value observing context
-    private var playerItemContext = 0
+    var playerItemObservation: NSKeyValueObservation?
 
     // define asset keys we are interested in
     let requiredAssetKeys = ["duration", "playable", "metadata", "tracks"]
@@ -55,7 +52,6 @@ class PreviewViewController: UIViewController {
     // when deinit, dont forget to remove observers
     deinit {
         NotificationCenter.default.removeObserver(self)
-        playerItem?.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
     }
 
     // MARK: - UIViewController life cycle
@@ -94,39 +90,7 @@ private extension PreviewViewController {
      */
 
     func showAssetMetadata() {
-        // proper solution, not to block thread
-        asset.loadValuesAsynchronously(forKeys: requiredAssetKeys) { [weak self] in
-            guard let `self` = self else { return }
-
-            // check if value loaded properly
-            var error: NSError? = nil
-            for key in self.requiredAssetKeys {
-                // guard each value if loaded
-                guard self.asset.statusOfValue(forKey: key, error: &error) == .loaded else {
-                    if error != nil {
-                        // log anything is wrong
-                        print(error?.localizedDescription ?? "error loading asset keys")
-                    }
-                    return
-                }
-            }
-
-            // need to be called on main bc touching ui
-            // careful blocking thread if not loaded before
-            DispatchQueue.main.async { [weak self] in
-                guard let `self` = self else { return }
-                let metadata = """
-                LOADED ASSET METADATA: \n
-                duration: \(self.asset.duration) \n
-                isPlayable: \(self.asset.isPlayable) \n
-                metadata: \(self.asset.metadata) \n
-                tracks: \(self.asset.tracks) \n
-                """
-
-                // set prepared text
-                self.metadataTextView.text = metadata
-            }
-        }
+        
     }
 }
 
@@ -154,11 +118,25 @@ private extension PreviewViewController {
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: playerItem)
 
-        // observer player item status if is ready for play
-        playerItem!.addObserver(self,
-                                forKeyPath: #keyPath(AVPlayerItem.status),
-                                options: [.old, .new],
-                                context: &playerItemContext)
+        playerItemObservation = playerItem?.observe(\.status, changeHandler: { [weak self] (item, change) in
+            // Switch over status value
+            switch item.status {
+            case .readyToPlay:
+                // player item is ready to play, update metadata text view
+                self?.metadataTextView.text = """
+                \(self?.metadataTextView.text ?? "") \n
+                LOADED PLAYER ITEM METADATA \n
+                duration: \(item.duration) \n
+                canPlayReverse: \(item.canPlayReverse) \n
+                canPlayFastForward: \(item.canPlayFastForward) \n
+                canPlaySlowBackward: \(item.canPlaySlowReverse) \n
+                """
+
+            default:
+                // if anything wrong log status
+                print(item.status)
+            }
+        })
     }
 
     func initPlayer() {
@@ -182,27 +160,26 @@ private extension PreviewViewController {
          - check values from observered player item (eg canPlayReverse)
          - check values printed in console after item restarts to play
          - check available rate values at https://developer.apple.com/documentation/avfoundation/avplayeritem/1385591-canplayreverse
+         - try seek with tolerance parameters
          */
 
         // rate property works after setting after player.play
         switch playbackType {
         case .normal:
-            player!.seek(to: .zero)
+            player?.seek(to: .zero)
             // now starts
-            player!.play()
-            player!.rate = 1
+            player?.play()
+            player?.rate = 1
 
         case .fast:
-            player!.seek(to: .zero)
+            player?.seek(to: .zero)
             // now starts
-            player!.play()
-            player!.rate = 2
+            player?.play()
+            player?.rate = 2
 
 
         case .slow:
-            player!.seek(to: .zero)
-            player!.play()
-            player!.rate = 6
+            print("TODO")
 
         case .backwards:
             // set start at the end of song
@@ -255,59 +232,6 @@ private extension PreviewViewController {
         print("can play reverse \(playerItem?.canPlayReverse ?? false)")
         print("can play slow reverse \(playerItem?.canPlaySlowReverse ?? false)")
         print("can play fast forward \(playerItem?.canPlayFastForward ?? false)")
-    }
-}
-
-// MARK: - Observing
-extension PreviewViewController {
-    override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
-
-        // only handle observations for the playerItemContext
-        guard context == &playerItemContext else {
-            super.observeValue(forKeyPath: keyPath,
-                               of: object,
-                               change: change,
-                               context: context)
-            return
-        }
-
-        // only status we observer and handle
-        guard keyPath == #keyPath(AVPlayerItem.status) else {
-            return
-        }
-
-        // only player current player item
-        guard let playerItem = object as? AVPlayerItem else {
-            return
-        }
-
-        let status: AVPlayerItem.Status
-        if let statusNumber = change?[.newKey] as? NSNumber {
-            status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
-        } else {
-            status = .unknown
-        }
-
-        // Switch over status value
-        switch status {
-        case .readyToPlay:
-            // player item is ready to play, update metadata text view
-            metadataTextView.text = """
-            \(metadataTextView.text!) \n
-            LOADED PLAYER ITEM METADATA \n
-            duration: \(playerItem.duration) \n
-            canPlayReverse: \(playerItem.canPlayReverse) \n
-            canPlayFastForward: \(playerItem.canPlayFastForward) \n
-            canPlaySlowBackward: \(playerItem.canPlaySlowReverse) \n
-            """
-
-        default:
-            // if anything wrong log status
-            print(status)
-        }
     }
 }
 

@@ -10,7 +10,7 @@ Source code for AVFoundation workshop
 * Code doesnt contain pods or any 3rd party tools
 
 ## Run
-* Run app in simulator
+* Run app in simulator,don't use XR, XS, XS Max (internal bug)
 * To run on device change your team in project settings
 
 ## Tasks
@@ -46,21 +46,6 @@ Source code for AVFoundation workshop
 - careful video recorded in portrait would be rotated without updating video size
 - once composition is ready video is exported, save button enabled a video played
 
-5) SEND ME FANCY VIDEO (AirDrop)
-- how to find video in simulator is below
+5) SEND ME FUNNY VIDEO
 As bonus try to use remote assets
-Dont forget that before reversing them or composing them they needed to be downloaded
-
-### How to find video in simulator
-* find iOS simulator devices folder
-```
-~/Library/Developer/CoreSimulator/Devices/
-```
-* open file with device definitions
-```
-device_set
-```
-* find device id used for development and open folder
-```
-~/Library/Developer/CoreSimulator/Devices/{deviceID}/data/Media/DCIM/100APPLE
-```
+Dont forget that before reversing them or composing them they needed to be downloaded (try AVAssetExportSession)

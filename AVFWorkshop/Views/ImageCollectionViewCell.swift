@@ -17,6 +17,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
 // MARK: - Public methods, setup image
 extension ImageCollectionViewCell {
     func set(with asset: AVAsset) {
+        backgroundColor = .gray
         // creating preview is heavy operation, result in completion handler
         asset.preview { [weak self] image in
             self?.imageView.image = image

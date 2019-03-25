@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840099A922482FAD005590BF /* test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 840099A822482FAD005590BF /* test.pdf */; };
+		840099AB2248382E005590BF /* wwdcavfoundation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 840099AA22483828005590BF /* wwdcavfoundation.mp4 */; };
+		840099AD224846D8005590BF /* Task1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099AC224846D8005590BF /* Task1.swift */; };
+		840099B22248D239005590BF /* Task3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099AF2248D239005590BF /* Task3.swift */; };
+		840099B32248D239005590BF /* Task2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099B02248D239005590BF /* Task2.swift */; };
+		840099B42248D239005590BF /* Task4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099B12248D239005590BF /* Task4.swift */; };
 		84390C5E217215CA00365F6D /* AudioSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84390C5D217215CA00365F6D /* AudioSelectionViewController.swift */; };
 		84390C60217218B100365F6D /* VideoCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84390C5F217218B100365F6D /* VideoCompositionViewController.swift */; };
 		84390C632172213400365F6D /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84390C622172213400365F6D /* AVKit.framework */; };
@@ -34,6 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840099A822482FAD005590BF /* test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test.pdf; sourceTree = "<group>"; };
+		840099AA22483828005590BF /* wwdcavfoundation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = wwdcavfoundation.mp4; sourceTree = "<group>"; };
+		840099AC224846D8005590BF /* Task1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task1.swift; sourceTree = "<group>"; };
+		840099AF2248D239005590BF /* Task3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task3.swift; sourceTree = "<group>"; };
+		840099B02248D239005590BF /* Task2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task2.swift; sourceTree = "<group>"; };
+		840099B12248D239005590BF /* Task4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task4.swift; sourceTree = "<group>"; };
 		84390C5D217215CA00365F6D /* AudioSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSelectionViewController.swift; sourceTree = "<group>"; };
 		84390C5F217218B100365F6D /* VideoCompositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompositionViewController.swift; sourceTree = "<group>"; };
 		84390C622172213400365F6D /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -75,6 +87,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840099AE2248D04D005590BF /* Solutions */ = {
+			isa = PBXGroup;
+			children = (
+				840099AC224846D8005590BF /* Task1.swift */,
+				840099B02248D239005590BF /* Task2.swift */,
+				840099AF2248D239005590BF /* Task3.swift */,
+				840099B12248D239005590BF /* Task4.swift */,
+			);
+			path = Solutions;
+			sourceTree = "<group>";
+		};
 		84390C612172213300365F6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +159,7 @@
 				84DD2E1E214D4ECA00633C3E /* ViewControllers */,
 				84DD2E26214D60E600633C3E /* Resources */,
 				84390C662174788A00365F6D /* Utils */,
+				840099AE2248D04D005590BF /* Solutions */,
 				84DD2E0B214D463E00633C3E /* AppDelegate.swift */,
 				84DD2E0F214D463E00633C3E /* Main.storyboard */,
 				84DD2E12214D464000633C3E /* Assets.xcassets */,
@@ -169,6 +193,7 @@
 		84DD2E26214D60E600633C3E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				840099A822482FAD005590BF /* test.pdf */,
 				84A3E53B216A9624004B9777 /* Audios */,
 				84DD2E27214D60EE00633C3E /* Videos */,
 			);
@@ -178,6 +203,7 @@
 		84DD2E27214D60EE00633C3E /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				840099AA22483828005590BF /* wwdcavfoundation.mp4 */,
 				84A3E54E216BB0C9004B9777 /* kid.mp4 */,
 				84390C642172A07800365F6D /* lastJedi.mp4 */,
 				84A3E54F216BB0C9004B9777 /* seagull.mp4 */,
@@ -253,6 +279,7 @@
 				84390C652172A07800365F6D /* lastJedi.mp4 in Resources */,
 				84A3E542216A963E004B9777 /* pig.mp3 in Resources */,
 				84A3E541216A963E004B9777 /* fox.mp3 in Resources */,
+				840099AB2248382E005590BF /* wwdcavfoundation.mp4 in Resources */,
 				84A3E552216BB0CA004B9777 /* seagull.mp4 in Resources */,
 				84A3E543216A963E004B9777 /* cat.mp3 in Resources */,
 				84A3E551216BB0CA004B9777 /* kid.mp4 in Resources */,
@@ -261,6 +288,7 @@
 				84DD2E11214D463E00633C3E /* Main.storyboard in Resources */,
 				84A3E544216A963E004B9777 /* hyena.mp3 in Resources */,
 				84A3E545216A963E004B9777 /* dog.mp3 in Resources */,
+				840099A922482FAD005590BF /* test.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +302,13 @@
 				84390C5E217215CA00365F6D /* AudioSelectionViewController.swift in Sources */,
 				84DD2E0E214D463E00633C3E /* OnboardingViewController.swift in Sources */,
 				84DD2E23214D5A7C00633C3E /* VideoSelectionViewController.swift in Sources */,
+				840099B32248D239005590BF /* Task2.swift in Sources */,
 				84DD2E0C214D463E00633C3E /* AppDelegate.swift in Sources */,
+				840099AD224846D8005590BF /* Task1.swift in Sources */,
+				840099B42248D239005590BF /* Task4.swift in Sources */,
 				84DD2E21214D54DE00633C3E /* ImageCollectionViewCell.swift in Sources */,
 				84DD2E33214D9F3900633C3E /* PreviewViewController.swift in Sources */,
+				840099B22248D239005590BF /* Task3.swift in Sources */,
 				84A3E53A216A93F6004B9777 /* AVAsset+ImagePreview.swift in Sources */,
 				84390C682174789C00365F6D /* AVUtils.swift in Sources */,
 				84390C60217218B100365F6D /* VideoCompositionViewController.swift in Sources */,

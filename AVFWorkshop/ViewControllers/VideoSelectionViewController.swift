@@ -18,7 +18,9 @@ final class VideoSelectionViewController: UIViewController {
         AVURLAsset(url: Bundle.main.url(forResource: "lastJedi", withExtension: "mp4")!),
         AVURLAsset(url: Bundle.main.url(forResource: "fall", withExtension: "mp4")!),
         AVURLAsset(url: Bundle.main.url(forResource: "kid", withExtension: "mp4")!),
-        AVURLAsset(url: Bundle.main.url(forResource: "seagull", withExtension: "mp4")!)
+        AVURLAsset(url: Bundle.main.url(forResource: "seagull", withExtension: "mp4")!),
+        AVURLAsset(url: Bundle.main.url(forResource: "wwdcavfoundation", withExtension: "mp4")!),
+        AVURLAsset(url: Bundle.main.url(forResource: "test", withExtension: "pdf")!)
     ]
 
     // help property to set proper size of preview cell item
