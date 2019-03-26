@@ -13,6 +13,7 @@
 		840099B22248D239005590BF /* Task3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099AF2248D239005590BF /* Task3.swift */; };
 		840099B32248D239005590BF /* Task2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099B02248D239005590BF /* Task2.swift */; };
 		840099B42248D239005590BF /* Task4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840099B12248D239005590BF /* Task4.swift */; };
+		841C219E224A1D5000B8F06C /* iOS Workshop 03_28_2019 - AVFoundation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 841C219D224A1D5000B8F06C /* iOS Workshop 03_28_2019 - AVFoundation.pdf */; };
 		84390C5E217215CA00365F6D /* AudioSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84390C5D217215CA00365F6D /* AudioSelectionViewController.swift */; };
 		84390C60217218B100365F6D /* VideoCompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84390C5F217218B100365F6D /* VideoCompositionViewController.swift */; };
 		84390C632172213400365F6D /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84390C622172213400365F6D /* AVKit.framework */; };
@@ -46,6 +47,7 @@
 		840099AF2248D239005590BF /* Task3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task3.swift; sourceTree = "<group>"; };
 		840099B02248D239005590BF /* Task2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task2.swift; sourceTree = "<group>"; };
 		840099B12248D239005590BF /* Task4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task4.swift; sourceTree = "<group>"; };
+		841C219D224A1D5000B8F06C /* iOS Workshop 03_28_2019 - AVFoundation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS Workshop 03_28_2019 - AVFoundation.pdf"; sourceTree = "<group>"; };
 		84390C5D217215CA00365F6D /* AudioSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSelectionViewController.swift; sourceTree = "<group>"; };
 		84390C5F217218B100365F6D /* VideoCompositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompositionViewController.swift; sourceTree = "<group>"; };
 		84390C622172213400365F6D /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -166,6 +168,7 @@
 				84DD2E14214D464000633C3E /* LaunchScreen.storyboard */,
 				84DD2E17214D464000633C3E /* Info.plist */,
 				84DD2E1D214D468A00633C3E /* README.md */,
+				841C219D224A1D5000B8F06C /* iOS Workshop 03_28_2019 - AVFoundation.pdf */,
 			);
 			path = AVFWorkshop;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				84A3E542216A963E004B9777 /* pig.mp3 in Resources */,
 				84A3E541216A963E004B9777 /* fox.mp3 in Resources */,
 				840099AB2248382E005590BF /* wwdcavfoundation.mp4 in Resources */,
+				841C219E224A1D5000B8F06C /* iOS Workshop 03_28_2019 - AVFoundation.pdf in Resources */,
 				84A3E552216BB0CA004B9777 /* seagull.mp4 in Resources */,
 				84A3E543216A963E004B9777 /* cat.mp3 in Resources */,
 				84A3E551216BB0CA004B9777 /* kid.mp4 in Resources */,
